@@ -1,0 +1,44 @@
+﻿<mah:MetroWindow  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                  x:Class="metakill.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:metakill.Views"
+        mah:DialogParticipation.Register="{Binding}"
+        mc:Ignorable="d"
+        Title="MetaKiller by @aqudei - fdeu.aalmine@gmail.com" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add Files" Margin="2,2,2,2" Command="{Binding AddFilesCommand}"/>
+            <Button Content="Clear All" Margin="2,2,2,2" Command="{Binding ClearAllCommand}"/>
+            <Button Content="Remove Selected" Margin="2,2,2,2" Command="{Binding RemoveSelectedCommand}"/>
+            <Button Content="Check All" Margin="2,2,2,2" Command="{Binding CheckAllCommand}"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding InFiles}" Margin="2,2,2,2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="File" Binding="{Binding FileName}"/>
+                <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Status}"/>
+                <DataGridCheckBoxColumn Width="Auto" Header="Selected" Binding="{Binding Selected}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox Grid.Row="2"
+                 Margin="2"
+                 IsReadOnly="True"
+                 Text="{Binding Log}" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+
+        <Button Margin="2" 
+                Content="Start Processing" 
+                Grid.Row="3"
+                Command="{Binding StartProcessingCommand}"/>
+    </Grid>
+</mah:MetroWindow>
