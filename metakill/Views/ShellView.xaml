@@ -62,7 +62,7 @@
                 Command="{Binding StartProcessingCommand}">
             <StackPanel Orientation="Horizontal">
                 <ico:PackIconFontAwesome Kind="RunningSolid" VerticalAlignment="Center"/>
-                <Label VerticalAlignment="Center">Start Processing</Label>
+                <Label VerticalAlignment="Center">START REMOVING METADATA</Label>
             </StackPanel>
         </Button>
     </Grid>
