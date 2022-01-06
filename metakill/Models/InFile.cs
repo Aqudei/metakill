@@ -11,10 +11,12 @@ namespace metakill.Models
     {
         private bool selected;
         private string status;
+        private string remarks;
 
         public string FileName { get; set; }
         public bool Selected { get => selected; set => SetProperty(ref selected, value); }
         public string Status { get => status; set => SetProperty(ref status, value); }
+        public string Remarks { get => remarks; set => SetProperty(ref remarks, value); }
 
         public override bool Equals(object obj)
         {
@@ -25,6 +27,11 @@ namespace metakill.Models
         {
             return other != null &&
                    FileName == other.FileName;
+        }
+
+        public override int GetHashCode()
+        {
+            return 901043656 + EqualityComparer<string>.Default.GetHashCode(FileName);
         }
 
         public static bool operator ==(InFile left, InFile right)
