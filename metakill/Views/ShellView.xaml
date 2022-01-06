@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ico="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:metakill.Views"
         mah:DialogParticipation.Register="{Binding}"
         mc:Ignorable="d"
@@ -16,10 +17,30 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Add Files" Margin="2,2,2,2" Command="{Binding AddFilesCommand}"/>
-            <Button Content="Clear All" Margin="2,2,2,2" Command="{Binding ClearAllCommand}"/>
-            <Button Content="Remove Selected" Margin="2,2,2,2" Command="{Binding RemoveSelectedCommand}"/>
-            <Button Content="Check All" Margin="2,2,2,2" Command="{Binding CheckAllCommand}"/>
+            <Button Width="150" Margin="2,2,2,2" Command="{Binding AddFilesCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <ico:PackIconFontAwesome Kind="PlusSolid" VerticalAlignment="Center"/>
+                    <Label VerticalAlignment="Center">Add Files</Label>
+                </StackPanel>
+            </Button>
+            <Button Width="150" Margin="2,2,2,2" Command="{Binding ClearAllCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <ico:PackIconFontAwesome Kind="MinusSolid" VerticalAlignment="Center"/>
+                    <Label VerticalAlignment="Center">Clear All</Label>
+                </StackPanel>
+            </Button>
+            <Button Width="150" Margin="2,2,2,2" Command="{Binding RemoveSelectedCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <ico:PackIconFontAwesome Kind="TrashSolid" VerticalAlignment="Center"/>
+                    <Label VerticalAlignment="Center">Remove Selected</Label>
+                </StackPanel>
+            </Button>
+            <Button Width="150"  Margin="2,2,2,2" Command="{Binding CheckAllCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <ico:PackIconFontAwesome Kind="CheckSolid" VerticalAlignment="Center"/>
+                    <Label VerticalAlignment="Center">Check All</Label>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <DataGrid Grid.Row="1" AutoGenerateColumns="False" 
@@ -36,9 +57,13 @@
                  IsReadOnly="True"
                  Text="{Binding Log}" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
 
-        <Button Margin="2" 
-                Content="Start Processing" 
+        <Button Margin="2"  
                 Grid.Row="3"
-                Command="{Binding StartProcessingCommand}"/>
+                Command="{Binding StartProcessingCommand}">
+            <StackPanel Orientation="Horizontal">
+                <ico:PackIconFontAwesome Kind="RunningSolid" VerticalAlignment="Center"/>
+                <Label VerticalAlignment="Center">Start Processing</Label>
+            </StackPanel>
+        </Button>
     </Grid>
 </mah:MetroWindow>

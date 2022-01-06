@@ -2,6 +2,7 @@
 using metakill.Models;
 using Microsoft.Win32;
 using Prism.Commands;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +17,7 @@ using System.Windows.Threading;
 
 namespace metakill.ViewModels
 {
-    class ShellViewModel : Prism.Mvvm.BindableBase
+    class ShellViewModel : BindableBase
     {
         private readonly IDialogCoordinator _dialogCoordinator;
         private readonly Dispatcher Dispatcher;
